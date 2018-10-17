@@ -8,7 +8,6 @@ vector< pair<int, int> >adjList[20009];
 
 void shortestPath (int source)
 {
-    cout << node << endl;
     priority_queue <iPair, vector <iPair>, greater <iPair> > PQ;
     vector<int> distance(node, INT_MAX);
     PQ.push(make_pair(0, source));
