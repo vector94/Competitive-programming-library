@@ -10,8 +10,7 @@
 #define all(x)              x.begin(), x.end()
 #define uniq(x)             x.erase(unique(x.begin(),x.end()),x.end())
 #define mem(array, value)   memset(array, value, sizeof(array))
-#define gcd(a,b)            __gcd(a,b)
-#define lcm(a,b)            (abs(a)/__gcd(a,b))*abs(b)
+#define lcm(a,b)            (abs(a)/gcd(a,b))*abs(b)
 #define PI      	        acos(-1.0)
 #define INF     	        1e9
 #define EPS     	        1e-8
@@ -20,15 +19,41 @@
 #define line                cout << "\n==========\n"
 #define fastRead 	        ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
 using namespace std;
+
 //int dx4[4] = {0, -1, 0, 1};
 //int dy4[4] = {-1, 0, 1, 0};
 //int dx8[8] = {0, -1, -1, -1, 0, 1, 1, 1};
 //int dy8[8] = {-1, -1, 0, 1, 1, 1, 0, -1};
 
+inline ll gcd ( ll a, ll b ) {
+    a = abs ( a ); b = abs ( b );
+    while ( b ) { a = a % b; swap ( a, b ); } return a;
+}
+
+inline ll power ( ll a, ll p ) {
+    ll res = 1, x = a;
+    while ( p ) {
+        if ( p & 1 ) res = ( res * x );
+        x = ( x * x ); p >>= 1;
+    }
+    return res;
+}
+
+inline ll bigmod ( ll a, ll p, ll m ) {
+    ll res = 1 % m, x = a % m;
+    while ( p ) {
+        if ( p & 1 ) res = ( res * x ) % m;
+        x = ( x * x ) % m; p >>= 1;
+    }
+    return res;
+}
+
+
 int main ()
 {
     //freopen ("input.txt", "r", stdin);
     //freopen ("output.txt", "w", stdout);
-    
+
     return 0;
 }
+
