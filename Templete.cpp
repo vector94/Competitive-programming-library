@@ -20,14 +20,15 @@
 #define line                cout << "\n==========\n"
 #define fastRead 	        ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
 using namespace std;
-//int dir4[4][2] = {{0, -1}, {-1, 0}, {0, 1}, {1, 0}};
-//int dir8[8][2] = {{0, -1}, {-1, -1}, {-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}};
+//int dx4[4] = {0, -1, 0, 1};
+//int dy4[4] = {-1, 0, 1, 0};
+//int dx8[8] = {0, -1, -1, -1, 0, 1, 1, 1};
+//int dy8[8] = {-1, -1, 0, 1, 1, 1, 0, -1};
 
 int main ()
 {
-    //freopen ( "input.txt", "r", stdin );
-    //freopen ( "output.txt", "w", stdout );
-
+    //freopen ("input.txt", "r", stdin);
+    //freopen ("output.txt", "w", stdout);
+    
     return 0;
 }
-
