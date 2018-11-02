@@ -54,7 +54,7 @@ int main ()
 {
     #ifdef forthright48
     //freopen ( "input.txt", "r", stdin );
-    //freopen ( "output00.txt", "w", stdout );
+    //freopen ( "output.txt", "w", stdout );
     #endif // forthright48
 
     return 0;
