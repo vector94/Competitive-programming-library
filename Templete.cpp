@@ -7,6 +7,7 @@
 #define pb                  push_back
 #define pbb                 pop_back
 #define mp                  make_pair
+#define pii     	        pair<int,int>
 #define all(x)              x.begin(), x.end()
 #define uniq(x)             x.erase(unique(x.begin(),x.end()),x.end())
 #define mem(array, value)   memset(array, value, sizeof(array))
