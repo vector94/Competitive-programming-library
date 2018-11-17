@@ -52,10 +52,10 @@ inline ll bigmod ( ll a, ll p, ll m ) {
 
 int main ()
 {
-    #ifdef forthright48
+    #ifdef Lollipop
     //freopen ( "input.txt", "r", stdin );
     //freopen ( "output.txt", "w", stdout );
-    #endif // forthright48
+    #endif // Lollipop
 
     return 0;
 }
