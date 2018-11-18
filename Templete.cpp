@@ -17,8 +17,6 @@
 #define PI      	        acos(-1.0)
 #define INF     	        1e9
 #define EPS     	        1e-8
-#define MOD                 1000000007
-#define MAX                 1000009
 #define line                cout << "\n==========\n"
 #define fastRead 	        ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
 using namespace std;
