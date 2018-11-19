@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-#include <ext/pb_ds/tree_policy.hpp>
-#include <ext/pb_ds/assoc_container.hpp>
+//#include <ext/pb_ds/tree_policy.hpp>
+//#include <ext/pb_ds/assoc_container.hpp>
 #define ll                  long long int
 #define ull                 unsigned long long int
 #define ld                  long double
@@ -20,8 +20,8 @@
 #define line                cout << "\n==========\n"
 #define fastRead 	        ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
 using namespace std;
-using namespace __gnu_pbds;
-typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> orderedSet; 
+//using namespace __gnu_pbds;
+//typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> orderedSet; 
 
 //int dx4[4] = {0, -1, 0, 1};
 //int dy4[4] = {-1, 0, 1, 0};
