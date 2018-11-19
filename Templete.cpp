@@ -23,34 +23,42 @@ using namespace std;
 //using namespace __gnu_pbds;
 //typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> orderedSet; 
 
-//int dx4[4] = {0, -1, 0, 1};
-//int dy4[4] = {-1, 0, 1, 0};
-//int dx8[8] = {0, -1, -1, -1, 0, 1, 1, 1};
-//int dy8[8] = {-1, -1, 0, 1, 1, 1, 0, -1};
+//int dx[] = {1, -1, 0, 0},                  dy[] = {0, 0, 1, -1};  // 4 Direction
+//int dx[] = {1, -1, 0, 0, 1, 1, -1, -1},    dy[] = {0, 0, 1, -1, 1, -1, 1, -1};  // 8 Direction
+//int dx[] = {1, -1, 1, -1, 2, 2, -2, -2},   dy[] = {2, 2, -2, -2, 1, -1, 1, -1};  // Knight Direction
 
-inline ll gcd ( ll a, ll b ) {
-    a = abs ( a ); b = abs ( b );
-    while ( b ) { a = a % b; swap ( a, b ); } return a;
+inline ll gcd(ll a, ll b){
+    a = abs(a);
+    b = abs(b);
+    while (b){
+        a = a % b;
+        swap (a, b);
+    }
+    return a;
 }
-
-inline ll power ( ll a, ll p ) {
+inline ll power(ll a, ll p){
     ll res = 1, x = a;
-    while ( p ) {
-        if ( p & 1 ) res = ( res * x );
-        x = ( x * x ); p >>= 1;
+    while (p){
+        if (p & 1){
+            res = (res * x);
+        }
+        x = (x * x);
+        p >>= 1;
     }
     return res;
 }
-
-inline ll bigmod ( ll a, ll p, ll m ) {
+inline ll bigmod(ll a, ll p, ll m){
     ll res = 1 % m, x = a % m;
-    while ( p ) {
-        if ( p & 1 ) res = ( res * x ) % m;
-        x = ( x * x ) % m; p >>= 1;
+    while (p){
+        if (p & 1){
+            res = (res * x) % m;
+        }
+        x = (x * x) % m;
+        p >>= 1;
     }
     return res;
 }
-/// <----------------------------------------------------------------------> ///
+/// <--------------------------------------------------------------------------------------------> ///
 
 int main ()
 {
