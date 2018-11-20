@@ -14,7 +14,7 @@
 #define uniq(x)             x.erase(unique(x.begin(),x.end()),x.end())
 #define mem(array, value)   memset(array, value, sizeof(array))
 #define lcm(a,b)            (abs(a)/gcd(a,b))*abs(b)
-#define PI      	        acos(-1.0)
+#define PI      	        2*acos(0.0)
 #define INF     	        1e9
 #define EPS     	        1e-8
 #define line                cout << "\n==========\n"
