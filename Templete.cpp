@@ -64,7 +64,7 @@ int main ()
     #ifdef Lollipop
     //freopen ("input.txt", "r", stdin);
     //freopen ("output.txt", "w", stdout);
-    #endif // Lollipop
+    #endif
     
     return 0;
 }
