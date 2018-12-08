@@ -13,7 +13,7 @@ int func(int i, int w)
     if (i == n){
         return 0;
     }
-    if (dp[i][w] == -1){
+    if (dp[i][w] != -1){
         return dp[i][w];
     }
     int profit1 = 0;
