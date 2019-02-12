@@ -9,6 +9,7 @@
 #define pb                  push_back
 #define pbb                 pop_back
 #define mp                  make_pair
+#define popcount            __builtin_popcountll
 #define pii     	        pair<int,int>
 #define all(x)              x.begin(), x.end()
 #define uniq(x)             x.erase(unique(x.begin(),x.end()),x.end())
