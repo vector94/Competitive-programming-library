@@ -22,11 +22,15 @@
 #define fastRead 	        ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
 using namespace std;
 //using namespace __gnu_pbds;
-//typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> orderedSet; 
+//typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> orderedSet;
 
 //int dx[] = {1, -1, 0, 0},                  dy[] = {0, 0, 1, -1};                  // 4 Direction
 //int dx[] = {1, -1, 0, 0, 1, 1, -1, -1},    dy[] = {0, 0, 1, -1, 1, -1, 1, -1};    // 8 Direction
 //int dx[] = {1, -1, 1, -1, 2, 2, -2, -2},   dy[] = {2, 2, -2, -2, 1, -1, 1, -1};   // Knight Direction
+
+std::mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+#define random(a, b)        ((((rand() << 15) ^ rand()) % ((b) - (a) + 1)) + (a))
+#define ran(a, b)           rng() % ((b) - (a) + 1) + (a)
 
 inline ll gcd(ll a, ll b){
     a = abs(a);
@@ -66,6 +70,6 @@ int main ()
     //freopen ("input.txt", "r", stdin);
     //freopen ("output.txt", "w", stdout);
     #endif
-    
+
     return 0;
 }
