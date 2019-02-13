@@ -15,6 +15,7 @@
 #define uniq(x)             x.erase(unique(x.begin(),x.end()),x.end())
 #define mem(array, value)   memset(array, value, sizeof(array))
 #define lcm(a,b)            (abs(a)/gcd(a,b))*abs(b)
+#define random(a, b)        ((((rand() << 15) ^ rand()) % ((b) - (a) + 1)) + (a))
 #define PI      	        2*acos(0.0)
 #define INF     	        1e9
 #define EPS     	        1e-8
@@ -27,10 +28,6 @@ using namespace std;
 //int dx[] = {1, -1, 0, 0},                  dy[] = {0, 0, 1, -1};                  // 4 Direction
 //int dx[] = {1, -1, 0, 0, 1, 1, -1, -1},    dy[] = {0, 0, 1, -1, 1, -1, 1, -1};    // 8 Direction
 //int dx[] = {1, -1, 1, -1, 2, 2, -2, -2},   dy[] = {2, 2, -2, -2, 1, -1, 1, -1};   // Knight Direction
-
-std::mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-#define random(a, b)        ((((rand() << 15) ^ rand()) % ((b) - (a) + 1)) + (a))
-#define ran(a, b)           rng() % ((b) - (a) + 1) + (a)
 
 inline ll gcd(ll a, ll b){
     a = abs(a);
