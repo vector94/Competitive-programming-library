@@ -49,6 +49,17 @@ inline ll power(ll a, ll p){
     }
     return res;
 }
+inline ll mulmod(ll a, ll p, ll m){
+    ll res = 0, x = a%m;
+    while (p){
+        if (p & 1){
+            res = (res + x) % m;
+        }
+        x = (x << 1) % m;
+        p >>= 1;
+    }
+    return res;
+}
 inline ll bigmod(ll a, ll p, ll m){
     ll res = 1 % m, x = a % m;
     while (p){
