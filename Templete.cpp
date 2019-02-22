@@ -83,7 +83,7 @@ inline ll bigmod(ll a, ll p, ll m){
     return res;
 }
 
-int main ( int argc , char const *argv[])
+int main ()
 {
     #ifdef Lollipop
     //freopen ("input.txt", "r", stdin);
