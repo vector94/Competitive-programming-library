@@ -19,7 +19,6 @@ using namespace std;
 #define lcm(a,b)            (abs(a)/gcd(a,b))*abs(b)
 #define random(a, b)        ((((rand() << 15) ^ rand()) % ((b) - (a) + 1)) + (a))
 #define PI      	        2*acos(0.0)
-#define INF     	        1e9
 #define EPS     	        1e-8
 #define line                cout << "\n==========\n"
 #define fastRead 	        ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
