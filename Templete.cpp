@@ -83,6 +83,8 @@ inline ll bigmod(ll a, ll p, ll m){
     return res;
 }
 
+const int INF = 1e9+9;
+
 int main ()
 {
     #ifdef Lollipop
