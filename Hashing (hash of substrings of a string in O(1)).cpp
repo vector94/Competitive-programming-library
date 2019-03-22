@@ -29,7 +29,7 @@ struct Hashing {
     ll *inv1, *inv2;
     int n;
     ll mod1 = (ll) 1e9 + 7, mod2 = (ll) 1e9 + 9;
-    ll multiplier1 = 43, multiplier2 = 31;
+    ll multiplier1 = 31, multiplier2 = 43;
     ll invMultiplier1 = 441860508, invMultiplier2 = 838709685;
 
     Hashing() {
