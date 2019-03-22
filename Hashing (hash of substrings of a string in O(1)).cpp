@@ -33,9 +33,9 @@ struct Hashing {
     ll invMultiplier1 = 441860508, invMultiplier2 = 838709685;
     Hashing() {}
     Hashing(string &s) {
-        build_Hash(s);
+        build_hash(s);
     }
-    void build_Hash(string &s) {
+    void build_hash(string &s) {
         n = s.size();
         hash1 = new ll[n + 1];
         hash2 = new ll[n + 1];
