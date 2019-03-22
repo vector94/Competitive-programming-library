@@ -60,7 +60,8 @@ struct Hashing {
         return (((hash1[i + len] - hash1[i] + mod1) * inv1[i] % mod1) << 32) 
                                 + (hash2[i + len] - hash2[i] + mod2) * inv2[i] % mod2;
     }
-    ll remains_hash(int i, int j) { //0 - based
+    ll rev_hash(int i, int j) { //0 - based
+        cout << n-j-1 << " " << n-i-1 << endl ;
         return get_hash(n - j - 1, n - i - 1);
     }
     void clear() {
@@ -91,8 +92,8 @@ int main ()
         int a, b;
         cin >> a >> b;
         ll h = hashing.get_hash(a, b);
-        ll r = hashing.remains_hash(a, b);
-        cout << "get_hash = " << h << ", remains_hash = " << r << endl;
+        ll r = hashing.rev_hash(a, b);
+        cout << "get_hash = " << h << ", rev_hash = " << r << endl;
     }
     return 0;
 }
