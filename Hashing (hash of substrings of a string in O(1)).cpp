@@ -89,7 +89,6 @@ struct Hashing {
     ll mod1 = (ll) 1e9 + 97, mod2 = (ll) 1e9 + 9;
     ll multiplier1 = 43, multiplier2 = 31;
     ll invMultiplier1 = 441860508, invMultiplier2 = 838709685;
-    // invMultiplier = modInv(multiplier, mod) //
 
     Hashing() {
     }
