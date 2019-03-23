@@ -61,7 +61,6 @@ struct Hashing {
                                 + (hash2[i + len] - hash2[i] + mod2) * inv2[i] % mod2;
     }
     ll rev_hash(int i, int j) { //0 - based
-        cout << n-j-1 << " " << n-i-1 << endl ;
         return get_hash(n - j - 1, n - i - 1);
     }
     void clear() {
