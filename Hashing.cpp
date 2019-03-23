@@ -94,7 +94,8 @@ int main ()
     //freopen ("output.txt", "w", stdout);
     #endif
     
-    gen_power();    
+    gen_power();
+    
     cin >> S;
     build_hash();
 
