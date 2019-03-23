@@ -24,13 +24,13 @@ using namespace std;
 #define fastRead 	        ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
 //typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> orderedSet;
 
-const int nax = 1e5+5;
+const int NAX = 1e5+5;
 const int Mod[2] = {1000000007, 1000000009};
 const int Base[2] = {31, 37};
-ll Pow[nax][2];
+ll Pow[NAX][2];
 string S;
 int Len;
-ll HashF[nax][2], HashR[nax][2];
+ll HashF[NAX][2], HashR[NAX][2];
 
 void build_hash()
 {
@@ -81,7 +81,7 @@ ll __get_hash(string &st)
 void gen_power()
 {
     Pow[0][0] = Pow[0][1] = 1;
-    for (int i = 1; i<nax; i++){
+    for (int i = 1; i<NAX; i++){
         Pow[i][0] = Pow[i-1][0] * Base[0] % Mod[0];
         Pow[i][1] = Pow[i-1][1] * Base[1] % Mod[1];
     }
