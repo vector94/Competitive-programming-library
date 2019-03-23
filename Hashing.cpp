@@ -44,7 +44,7 @@ void build_hash()
         HashR[Len-i+1][1] = (HashR[Len-i+2][1] * Base[1] + S[Len-i]) % Mod[1];
     }
 }
-ll get_hash(int l, int r) // 0 - based, hash of substring [l, r]
+ll get_hash(int l, int r)
 {
     l++, r++;
     if (l == 1) return (HashF[r][0] << 31) | HashF[r][1];
@@ -54,7 +54,7 @@ ll get_hash(int l, int r) // 0 - based, hash of substring [l, r]
     Hash2 = (Hash2 + Mod[1]) % Mod[1];
     return (Hash1 << 31) | Hash2;
 }
-ll get_hash2(int l, int len) // 0 - based, hash of substring [l, l+len-1]
+ll get_hash2(int l, int len)
 {
     return get_hash(l, l+len-1);
 }
