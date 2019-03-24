@@ -39,57 +39,60 @@ void __f(const char* names, Arg1&& arg1, Args&&... args){
 //int dx[] = {1, -1, 0, 0, 1, 1, -1, -1},    dy[] = {0, 0, 1, -1, 1, -1, 1, -1};    // 8 Direction
 //int dx[] = {1, -1, 1, -1, 2, 2, -2, -2},   dy[] = {2, 2, -2, -2, 1, -1, 1, -1};   // Knight Direction
 
-int Set(int N,int pos){
-    return N=N | (1<<pos);
-}
-int Reset(int N,int pos){
-    return N= N & ~(1<<pos);
-}
-bool Check(int N,int pos){
-    return (bool)(N & (1<<pos));
-}
 inline ll gcd(ll a, ll b){
-    a = abs(a);
-    b = abs(b);
-    while (b){
-        a = a % b;
-        swap (a, b);
-    }
+    a = abs(a), b = abs(b);
+    while (b)
+        a = a % b, swap (a, b);
     return a;
 }
 inline ll power(ll a, ll p){
     ll res = 1, x = a;
     while (p){
-        if (p & 1){
+        if (p & 1)
             res = (res * x);
-        }
-        x = (x * x);
-        p >>= 1;
+        x = (x * x), p >>= 1;
     }
     return res;
 }
-inline ll mulmod(ll a, ll p, ll m){
+inline ll mul_mod(ll a, ll p, ll m){
     ll res = 0, x = a%m;
     while (p){
-        if (p & 1){
+        if (p & 1)
             res = (res + x) % m;
-        }
-        x = (x << 1) % m;
-        p >>= 1;
+        x = (x << 1) % m, p >>= 1;
     }
     return res;
 }
-inline ll bigmod(ll a, ll p, ll m){
+inline ll big_mod(ll a, ll p, ll m){
     ll res = 1 % m, x = a % m;
     while (p){
-        if (p & 1){
+        if (p & 1)
             res = (res * x) % m;
-        }
-        x = (x * x) % m;
-        p >>= 1;
+        x = (x * x) % m, p >>= 1;
     }
     return res;
 }
+ll ext_gcd(ll A, ll B, ll *X, ll *Y ){
+    ll x2, y2, x1, y1, x, y, r2, r1, q, r;
+    x2 = 1; y2 = 0;
+    x1 = 0; y1 = 1;
+    for (r2 = A, r1 = B; r1 != 0; r2 = r1, r1 = r, x2 = x1, y2 = y1, x1 = x, y1 = y ) {
+        q = r2 / r1;
+        r = r2 % r1;
+        x = x2 - (q * x1);
+        y = y2 - (q * y1);
+    }
+    *X = x2; *Y = y2;
+    return r2;
+}
+inline ll mod_inv(ll a, ll m) {
+    ll x, y;
+    ext_gcd(a, m, &x, &y);
+    x %= m;
+    if ( x < 0 ) x += m;
+    return x;
+}
+
 
 const int INF = 1e9+9;
 
@@ -99,7 +102,6 @@ int main ()
     //freopen ("input.txt", "r", stdin);
     //freopen ("output.txt", "w", stdout);
     #endif
-
+	
     return 0;
 }
-
