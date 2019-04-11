@@ -48,8 +48,7 @@ inline ll gcd(ll a, ll b){
 inline ll power(ll a, ll p){
     ll res = 1, x = a;
     while (p){
-        if (p & 1)
-            res = (res * x);
+        if (p & 1) res = (res * x);
         x = (x * x), p >>= 1;
     }
     return res;
@@ -57,8 +56,7 @@ inline ll power(ll a, ll p){
 inline ll mul_mod(ll a, ll p, ll m){
     ll res = 0, x = a%m;
     while (p){
-        if (p & 1)
-            res = (res + x) % m;
+        if (p & 1) res = (res + x) % m;
         x = (x << 1) % m, p >>= 1;
     }
     return res;
@@ -66,21 +64,18 @@ inline ll mul_mod(ll a, ll p, ll m){
 inline ll big_mod(ll a, ll p, ll m){
     ll res = 1 % m, x = a % m;
     while (p){
-        if (p & 1)
-            res = (res * x) % m;
+        if (p & 1) res = (res * x) % m;
         x = (x * x) % m, p >>= 1;
     }
     return res;
 }
 ll ext_gcd(ll A, ll B, ll *X, ll *Y ){
     ll x2, y2, x1, y1, x, y, r2, r1, q, r;
-    x2 = 1; y2 = 0;
-    x1 = 0; y1 = 1;
+    x2 = 1, y2 = 0;
+    x1 = 0, y1 = 1;
     for (r2 = A, r1 = B; r1 != 0; r2 = r1, r1 = r, x2 = x1, y2 = y1, x1 = x, y1 = y ) {
-        q = r2 / r1;
-        r = r2 % r1;
-        x = x2 - (q * x1);
-        y = y2 - (q * y1);
+        q = r2 / r1, r = r2 % r1;
+        x = x2 - (q * x1), y = y2 - (q * y1);
     }
     *X = x2; *Y = y2;
     return r2;
@@ -99,9 +94,16 @@ const int INF = 1e9+9;
 int main ()
 {
     #ifdef Lollipop
-    //freopen ("input.txt", "r", stdin);
-    //freopen ("output.txt", "w", stdout);
+        //freopen ("input.txt", "r", stdin);
+        //freopen ("output.txt", "w", stdout);
+        double start_time = clock();
     #endif
-	
+
+
+    #ifdef Lollipop
+        double end_time = clock();
+        double val = (end_time-start_time)/CLOCKS_PER_SEC;
+        printf("Time = %f\n", val);
+    #endif
     return 0;
 }
