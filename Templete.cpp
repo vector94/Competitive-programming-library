@@ -103,7 +103,7 @@ int main ()
     #ifdef Lollipop
         double end_time = clock();
         double val = (end_time-start_time)/CLOCKS_PER_SEC;
-        printf("Time = %f\n", val);
+        printf("\nTime = %f\n", val);
     #endif
     return 0;
 }
