@@ -3,9 +3,9 @@
 //#include <ext/pb_ds/assoc_container.hpp>
 using namespace std;
 //using namespace __gnu_pbds;
-#pragma GCC optimize("Ofast,no-stack-protector")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
-#pragma GCC optimize("unroll-loops")
+//#pragma GCC optimize("Ofast,no-stack-protector")
+//#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+//#pragma GCC optimize("unroll-loops")
 #define ll                  long long int
 #define ull                 unsigned long long int
 #define ld                  long double
