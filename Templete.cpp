@@ -99,14 +99,8 @@ int main ()
     #ifdef Lollipop
         //freopen ("input.txt", "r", stdin);
         //freopen ("output.txt", "w", stdout);
-        double start_time = clock();
     #endif
 
-
-    #ifdef Lollipop
-        double end_time = clock();
-        double val = (end_time-start_time)/CLOCKS_PER_SEC;
-        printf("\nTime = %f\n", val);
-    #endif
+    
     return 0;
 }
