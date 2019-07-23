@@ -91,7 +91,6 @@ inline ll mod_inv(ll a, ll m) {
     return x;
 }
 
-
 const int INF = 1e9+9;
 
 int main ()
