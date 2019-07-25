@@ -37,10 +37,10 @@ void __f(const char* names, Arg1&& arg1, Args&&... args){
 //int dx[] = {-2, -1, 1, 2, 2, -1, 1, -2},   dy[] = {1, 2, 2, 1, -1, -2, -2, -1};   // Knight Direction
 
 int Set(int mask, int pos){
-    return mask | (1LL << pos);
+    return mask | (1 << pos);
 }
 int Reset(int mask, int pos){
-    return mask & ~(1LL << pos);
+    return mask & ~(1 << pos);
 }
 bool Check(int mask, int pos){
     return (bool)(mask & (1 << pos));
