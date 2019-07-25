@@ -1,11 +1,5 @@
 #include <bits/stdc++.h>
-//#include <ext/pb_ds/tree_policy.hpp>
-//#include <ext/pb_ds/assoc_container.hpp>
 using namespace std;
-//using namespace __gnu_pbds;
-//#pragma GCC optimize("Ofast,no-stack-protector")
-//#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
-//#pragma GCC optimize("unroll-loops")
 #define ll                  long long int
 #define ull                 unsigned long long int
 #define ld                  long double
@@ -42,14 +36,14 @@ void __f(const char* names, Arg1&& arg1, Args&&... args){
 //int dx[] = {-1, 0, 1, 0, -1, 1, 1, -1},    dy[] = {0, 1, 0, -1, -1, 1, -1, 1};    // 8 Direction
 //int dx[] = {-2, -1, 1, 2, 2, -1, 1, -2},   dy[] = {1, 2, 2, 1, -1, -2, -2, -1};   // Knight Direction
 
-int Set(int N, int pos){
-    return N = N | (1 << pos);
+int Set(int mask, int pos){
+    return mask | (1LL << pos);
 }
-int Reset(int N, int pos){
-    return N = N & ~(1 << pos);
+int Reset(int mask, int pos){
+    return mask & ~(1LL << pos);
 }
-bool Check(int N, int pos){
-    return (bool)(N & (1 << pos));
+bool Check(int mask, int pos){
+    return (bool)(mask & (1 << pos));
 }
 
 inline ll gcd(ll a, ll b){
