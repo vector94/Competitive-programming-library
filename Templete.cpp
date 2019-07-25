@@ -42,6 +42,16 @@ void __f(const char* names, Arg1&& arg1, Args&&... args){
 //int dx[] = {-1, 0, 1, 0, -1, 1, 1, -1},    dy[] = {0, 1, 0, -1, -1, 1, -1, 1};    // 8 Direction
 //int dx[] = {-2, -1, 1, 2, 2, -1, 1, -2},   dy[] = {1, 2, 2, 1, -1, -2, -2, -1};   // Knight Direction
 
+int Set(int N, int pos){
+    return N = N | (1 << pos);
+}
+int Reset(int N, int pos){
+    return N = N & ~(1 << pos);
+}
+bool Check(int N, int pos){
+    return (bool)(N & (1 << pos));
+}
+
 inline ll gcd(ll a, ll b){
     a = abs(a), b = abs(b);
     while (b)
@@ -93,6 +103,8 @@ inline ll mod_inv(ll a, ll m) {
 
 const int INF = 1e9+9;
 
+
+
 int main ()
 {
     #ifdef Lollipop
@@ -100,6 +112,5 @@ int main ()
         //freopen ("output.txt", "w", stdout);
     #endif
 
-    
     return 0;
 }
