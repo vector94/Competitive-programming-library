@@ -28,7 +28,7 @@ void __f(const char* names, Arg1&& arg1, Args&&... args){
     __f(comma + 1, args...);
 }
 
-const int INF = 1e9+9;
+const int INF = 1e9;
 
 
 int main ()
