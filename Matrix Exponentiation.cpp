@@ -3,7 +3,7 @@
 2. Declare MAT with row and col.
 */
 
-ll MATMOD = 1e9+9;
+ll MATMOD;
 struct MAT{
     ll a[x][x];///Maximum dimension of the matrix
     int row, col;
