@@ -17,7 +17,6 @@ struct MAT{
         row = r;
         col = c;
     }
-
     void identity(){
         mem(a, 0);
         for ( int i = 0; i < row; i++ ) a[i][i] = 1;
