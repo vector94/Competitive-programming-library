@@ -3,15 +3,15 @@
 2. Declare MAT with row and col.
 */
 
-vlong MATMOD;
+ll MATMOD = 1e9+9;
 struct MAT{
-    vlong a[x][x];///Maximum dimension of the matrix
+    ll a[4][4];///Maximum dimension of the matrix
     int row, col;
     MAT(){}
     MAT(int r, int c){
         row = r;
         col = c;
-        mem();
+        mem(a, 0);
     }
     void assign ( int r, int c ) {
         row = r;
@@ -19,11 +19,8 @@ struct MAT{
     }
 
     void identity(){
-        mem();
+        mem(a, 0);
         for ( int i = 0; i < row; i++ ) a[i][i] = 1;
-    }
-    void mem(){
-        memset ( a, 0, sizeof a );
     }
     void print() { ///For debugging purpose
         for ( int i = 0; i < row; i++ ){
@@ -42,7 +39,7 @@ struct MAT{
         }
         return res;
     }
-    MAT operator ^ ( vlong p ) { ///Matrix Exponentiation
+    MAT operator ^ ( ll p ) { ///Matrix Exponentiation
         MAT res ( row, col ); res.identity();
         MAT x = *this;
         while ( p ){
@@ -54,4 +51,4 @@ struct MAT{
         }
         return res;
     }
-}
+};
