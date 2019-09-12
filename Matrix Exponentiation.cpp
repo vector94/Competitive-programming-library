@@ -5,7 +5,7 @@
 
 ll MATMOD = 1e9+9;
 struct MAT{
-    ll a[4][4];///Maximum dimension of the matrix
+    ll a[x][x];///Maximum dimension of the matrix
     int row, col;
     MAT(){}
     MAT(int r, int c){
