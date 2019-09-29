@@ -4,12 +4,21 @@ using namespace std;
 const int maxn = 1e4+9;
 int parent[maxn];
 
-int Find(int n)
+//int Fing(int n) // without path compression
+//{
+//    if (parent[n] == -1){
+//        return n;
+//    }
+//    return Find(parent[n]);
+//}
+
+int Find(int n) // with path compression
 {
     if (parent[n] == -1){
         return n;
     }
-    return Find(parent[n]);
+    parent[n] =  Find(parent[n]);
+    return parent[n];
 }
 void Union(int set1, int set2)
 {
@@ -39,4 +48,3 @@ int main ()
     }
     return 0;
 }
-
