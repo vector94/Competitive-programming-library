@@ -3,9 +3,11 @@ using namespace std;
 
 const int nax = 1e5 + 5;
 int parent[nax];
+//int sz[nax];
 
 void makeset(int u) {
     parent[u] = u;
+//    sz[u] = 1;
 }
 
 void init_DSU(int N) {
@@ -13,13 +15,6 @@ void init_DSU(int N) {
         makeset(i);
     }
 }
-
-//int Find(int r) { //without path compression
-//    if(parent[r]==r) {
-//        return r;
-//    }
-//    return Find(parent[r]);
-//}
 
 int Find(int r) { //with path compression
     if(parent[r]==r) {
@@ -31,12 +26,18 @@ int Find(int r) { //with path compression
     return parent[r];
 }
 
+//int FindSize(int r)
+//{
+//    return sz[Find(r)];
+//}
+
 void Union(int a, int b) {
     int u = Find(a);
     int v = Find(b);
 
     if(u!=v) {
         parent[u] = v;
+//        sz[v] += sz[u];
     }
 }
 
