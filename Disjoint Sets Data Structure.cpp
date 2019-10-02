@@ -1,33 +1,57 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int maxn = 1e4+9;
-int parent[maxn];
+const int nax = 1e5 + 5;
+int parent[nax];
 
-//int Fing(int n) // without path compression
-//{
-//    if (parent[n] == -1){
-//        return n;
+void makeset(int u) {
+    parent[u] = u;
+}
+
+void init_DSU(int N) {
+    for(int i=0; i<=N; i++) {
+        makeset(i);
+    }
+}
+
+//int Find(int r) { //without path compression
+//    if(parent[r]==r) {
+//        return r;
 //    }
-//    return Find(parent[n]);
+//    return Find(parent[r]);
 //}
 
-int Find(int n) // with path compression
-{
-    if (parent[n] == -1){
-        return n;
+int Find(int r) { //with path compression
+    if(parent[r]==r) {
+        return r;
     }
-    parent[n] =  Find(parent[n]);
-    return parent[n];
-}
-void Union(int set1, int set2)
-{
-    parent[set1] = set2;
+
+    parent[r] = Find(parent[r]);
+
+    return parent[r];
 }
 
-int main ()
+void Union(int a, int b) {
+    int u = Find(a);
+    int v = Find(b);
+
+    if(u!=v) {
+        parent[u] = v;
+    }
+}
+
+int main()
 {
-    memset(parent, -1, sizeof(parent));
+    #ifdef Lollipop
+        //freopen("input.txt", "r", stdin);
+        //freopen("output.txt", "w", stdout);
+    #endif // Lollipop
+
+    int n, m;
+    scanf("%d %d", &n, &m);
+
+    init_DSU(n);
+
     int node, edge;
     cin >> node >> edge;
     int u, v;
