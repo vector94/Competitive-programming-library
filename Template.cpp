@@ -14,7 +14,7 @@ using namespace std;
 #define mem(array, value)       memset(array, value, sizeof(array))
 #define lcm(a,b)                (abs(a) / gcd(a,b)) * abs(b)
 #define num_digit(number, base) (((long long)(log10(number) / log10(base)))+1)
-#define sqare(x)                ((x) * (x))
+#define square(x)               ((x) * (x))
 #define pi      	            2 * acos(0.0)
 #define eps     	            1e-11
 #define line                    cout << "\n==========\n"
