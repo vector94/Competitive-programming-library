@@ -3,26 +3,30 @@
 //#include <ext/pb_ds/assoc_container.hpp>
 using namespace std;
 //using namespace __gnu_pbds;
-#define ll                  long long int
-#define ull                 unsigned long long int
-#define ld                  long double
-#define fi                  first
-#define se                  second
-#define pb                  push_back
-#define pbb                 pop_back
-#define mp                  make_pair
-#define popcount            __builtin_popcountll
-#define pii     	        pair<int,int>
-#define all(x)              x.begin(), x.end()
-#define uniq(x)             x.erase(unique(x.begin(),x.end()),x.end())
-#define mem(array, value)   memset(array, value, sizeof(array))
-#define lcm(a,b)            (abs(a)/gcd(a,b))*abs(b)
-#define random(a, b)        ((((rand() << 15) ^ rand()) % ((b) - (a) + 1)) + (a))
-#define PI      	        2*acos(0.0)
-#define EPS     	        1e-8
-#define line                cout << "\n==========\n"
-#define fastRead 	        ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
-#define trace(...)          __f( #__VA_ARGS__ , __VA_ARGS__ )
+#define ll                      long long int
+#define ull                     unsigned long long int
+#define ld                      long double
+#define fi                      first
+#define se                      second
+#define pb                      push_back
+#define pbb                     pop_back
+#define mp                      make_pair
+#define pii     	            pair<int,int>
+#define piii                    pair<pair<int, int>, int>
+#define popcount                __builtin_popcountll
+#define all(x)                  x.begin(), x.end()
+#define uniq(x)                 x.erase(unique(x.begin(),x.end()),x.end())
+#define mem(array, value)       memset(array, value, sizeof(array))
+#define lcm(a,b)                (abs(a) / gcd(a,b)) * abs(b)
+#define num_digit(number, base) (((long long)(log10(number) / log10(base)))+1)
+#define random(a, b)            ((((rand() << 15) ^ rand()) % ((b) - (a) + 1)) + (a))
+#define FABS(x)                 ((x) + eps < 0 ? -(x) : (x))
+#define sqare(x)                ((x) * (x))
+#define pi      	            2 * acos(0.0)
+#define eps     	            1e-11
+#define line                    cout << "\n==========\n"
+#define fastRead 	            ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
+#define trace(...)              __f( #__VA_ARGS__ , __VA_ARGS__ )
 template <typename Arg1>
 void __f(const char* name, Arg1&& arg1){
     cerr << name << " : " << arg1 << "\n";
@@ -98,7 +102,7 @@ inline ll mod_inv(ll a, ll m) {
     return x;
 }
 
-const int INF = 1e9;
+const ll INF = 1e15;
 
 
 int main ()
@@ -107,6 +111,8 @@ int main ()
         //freopen ("input.txt", "r", stdin);
         //freopen ("output.txt", "w", stdout);
     #endif
+    //fastRead;
+
 
     return 0;
 }
