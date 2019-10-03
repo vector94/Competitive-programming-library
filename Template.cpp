@@ -57,7 +57,6 @@ inline ll big_mod(ll a, ll p, ll m){
     return res;
 }
 
-
 const ll INF = 1e15;
 
 
