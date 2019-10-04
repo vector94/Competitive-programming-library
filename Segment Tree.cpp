@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int nax = 100005;
+const int nax = 1e5 + 5;
 int ara[nax];
 int tree[nax * 3];
 
