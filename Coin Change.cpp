@@ -26,7 +26,7 @@ int call(int i, int amount)
         ret1 = call(i, amount - coin[i]);
     }
     ret2 = call(i+1, amount);
-    return dp[i][amount] = ret1 | ret2;
+    return dp[i][amount] = ret1 + ret2;
 }
 
 int main ()
