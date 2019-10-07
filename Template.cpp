@@ -12,10 +12,10 @@ using namespace std;
 #define popcount                __builtin_popcountll
 #define all(x)                  x.begin(), x.end()
 #define mem(array, value)       memset(array, value, sizeof(array))
-#define lcm(a,b)                (abs(a) / gcd(a,b)) * abs(b)
+#define lcm(a,b)                ((abs(a) / gcd(a,b)) * abs(b))
 #define num_digit(number, base) (((long long)(log10(number) / log10(base)))+1)
 #define SQ(x)                   ((x) * (x))
-#define pi      	            2 * acos(0.0)
+#define pi      	            (2 * acos(0.0))
 #define eps     	            1e-11
 #define line                    cout << "\n==========\n"
 #define fastRead 	            ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
