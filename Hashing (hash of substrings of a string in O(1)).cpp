@@ -53,14 +53,14 @@ struct Hashing {
             inv2[i + 1] = inv2[i] * invMultiplier2 % mod2;
         }
     }
-    ll get_hash(int i, int j) { 
+    ll get_hash(int i, int j) { //0 - based, hash of substring [i, j]
         return get_hash2(i, j - i + 1);
     }
-    ll get_hash2(int i, int len) {
+    ll get_hash2(int i, int len) { //0 - based, hash of substring [i, i+len-1]
         return (((hash1[i + len] - hash1[i] + mod1) * inv1[i] % mod1) << 32) 
                                 + (hash2[i + len] - hash2[i] + mod2) * inv2[i] % mod2;
     }
-    ll rev_hash(int i, int j) {
+    ll rev_hash(int i, int j) { //0 - based
         return get_hash(n - j - 1, n - i - 1);
     }
     void clear() {
