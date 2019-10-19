@@ -66,7 +66,7 @@ int main ()
         //freopen ("input.txt", "r", stdin);
         //freopen ("output.txt", "w", stdout);
     #endif
-    fastRead;
+    //fastRead;
 
 
     return 0;
