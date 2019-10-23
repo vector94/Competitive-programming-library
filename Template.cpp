@@ -19,17 +19,21 @@ using namespace std;
 #define eps     	            1e-11
 #define line                    cout << "\n==========\n"
 #define fastRead 	            ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
-#define trace(...)              __f( #__VA_ARGS__ , __VA_ARGS__ )
-template <typename Arg1>
-void __f(const char* name, Arg1&& arg1){
-    cerr << name << " : " << arg1 << "\n";
-}
-template <typename Arg1, typename... Args>
-void __f(const char* names, Arg1&& arg1, Args&&... args){
-    const char* comma = strchr(names + 1, ',');
-    cerr.write(names, comma - names) << " : " << arg1 << " , ";
+#ifdef Lollipop
+    #define trace(...)              __f( #__VA_ARGS__ , __VA_ARGS__ )
+    template <typename Arg1>
+    void __f(const char* name, Arg1&& arg1){
+        cerr << name << " = " << arg1 << "\n";
+    }
+    template <typename Arg1, typename... Args>
+    void __f(const char* names, Arg1&& arg1, Args&&... args){
+        const char* comma = strchr(names + 1, ',');
+        cerr.write(names, comma - names) << " : " << arg1 << " , ";
     __f(comma + 1, args...);
-}
+    }
+#else
+    #define trace(...)
+#endif
 
 //int dx[] = {-1, 0, 1, 0},                  dy[] = {0, 1, 0, -1};                  // 4 Direction
 //int dx[] = {-1, 0, 1, 0, -1, 1, 1, -1},    dy[] = {0, 1, 0, -1, -1, 1, -1, 1};    // 8 Direction
@@ -67,6 +71,7 @@ int main ()
         //freopen ("output.txt", "w", stdout);
     #endif
     //fastRead;
+
 
 
     return 0;
