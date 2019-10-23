@@ -21,7 +21,7 @@ using namespace std;
 #define all(x)                  x.begin(), x.end()
 #define mem(array, value)       memset(array, value, sizeof(array))
 #define lcm(a,b)                ((abs(a) / gcd(a,b)) * abs(b))
-#define num_digit(number, base) (((long long)(log10(number) / log10(base)))+1)
+#define num_digit(number, base) (((long long)(log10(number) / log10(base))) + 1)
 #define Random(a, b)            ((((rand() << 15) ^ rand()) % ((b) - (a) + 1)) + (a))
 #define Unique(x)               x.erase(unique(x.begin(), x.end()), x.end())                            /// data must be sorted
 #define Common(x, y)            x.erase(set_intersection(all(x), all(y), x.begin()), x.end())           /// data must be sorted
