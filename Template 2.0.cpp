@@ -86,7 +86,7 @@ inline ll power(ll a, ll p){
     return res;
 }
 inline ll mul_mod(ll a, ll p, ll m){
-    ll res = 0, x = a%m;
+    ll res = 0, x = a % m;
     while (p){
         if (p & 1) res = (res + x) % m;
         x = (x << 1) % m, p >>= 1;
