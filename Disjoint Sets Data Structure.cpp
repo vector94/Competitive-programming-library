@@ -11,13 +11,13 @@ void makeset(int u) {
 }
 
 void init_DSU(int N) {
-    for(int i=0; i<=N; i++) {
+    for(int i = 0; i <= N; i++) {
         makeset(i);
     }
 }
 
 int Find(int r) { //with path compression
-    if(parent[r]==r) {
+    if(parent[r] == r) {
         return r;
     }
 
@@ -35,7 +35,7 @@ void Union(int a, int b) {
     int u = Find(a);
     int v = Find(b);
 
-    if(u!=v) {
+    if(u != v) {
         parent[u] = v;
 //        sz[v] += sz[u];
     }
@@ -68,7 +68,7 @@ int main()
             cout << "Already in same set\n";
         }
     }
-    for (int i = 1; i<=node; i++){
+    for (int i = 1; i <= node; i++){
         cout << parent[i] << " ";
     }
     return 0;
