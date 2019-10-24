@@ -21,7 +21,7 @@ using namespace std;
 #define all(x)                  x.begin(), x.end()
 #define mem(array, value)       memset(array, value, sizeof(array))
 #define lcm(a,b)                ((abs(a) / gcd(a,b)) * abs(b))
-#define num_digit(number, base) (((long long)(log10(number) / log10(base))) + 1)
+#define num_digit(number, base) (((long long)(log10(number) / log10(base)))+1)
 #define Random(a, b)            ((((rand() << 15) ^ rand()) % ((b) - (a) + 1)) + (a))
 #define Unique(x)               x.erase(unique(x.begin(), x.end()), x.end())                            /// data must be sorted
 #define Common(x, y)            x.erase(set_intersection(all(x), all(y), x.begin()), x.end())           /// data must be sorted
@@ -31,9 +31,9 @@ using namespace std;
 #define SQ(x)                   ((x) * (x))
 #define pi      	            (2 * acos(0.0))
 #define eps     	            1e-11
-#define line                    cout << "\n====================\n"
 #define fastRead 	            ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 #ifdef Lollipop
+    #define line                    cout << "\n===================\n"
     #define trace(...)              __f( #__VA_ARGS__ , __VA_ARGS__ )
     template <typename Arg1>
     void __f(const char* name, Arg1&& arg1){
@@ -46,6 +46,7 @@ using namespace std;
     __f(comma + 1, args...);
     }
 #else
+    #define line
     #define trace(...)
 #endif
 //typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> orderedSet;
@@ -86,7 +87,7 @@ inline ll power(ll a, ll p){
     return res;
 }
 inline ll mul_mod(ll a, ll p, ll m){
-    ll res = 0, x = a % m;
+    ll res = 0, x = a%m;
     while (p){
         if (p & 1) res = (res + x) % m;
         x = (x << 1) % m, p >>= 1;
@@ -121,7 +122,6 @@ inline ll mod_inv(ll a, ll m){
 }
 
 const ll INF = 1e15;
-
 
 int main ()
 {
