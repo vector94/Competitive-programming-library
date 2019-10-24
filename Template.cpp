@@ -48,7 +48,11 @@ inline ll big_mod(ll a, ll p, ll m){
 }
 
 const ll INF = 1e15;
-
+/**
+    -> Clear Idea
+    -> Special Case
+    -> Clean Code
+**/
 
 int main ()
 {
