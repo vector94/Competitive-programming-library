@@ -9,9 +9,9 @@ using namespace std;
 #define pii     	            pair<int,int>
 #define all(x)                  x.begin(), x.end()
 #define mem(array, value)       memset(array, value, sizeof(array))
-#define line                    cout << "\n===============\n"
 #define fastRead 	            ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
 #ifdef Lollipop
+    #define line                    cout << "\n===================\n"
     #define trace(...)              __f( #__VA_ARGS__ , __VA_ARGS__ )
     template <typename Arg1>
     void __f(const char* name, Arg1&& arg1){
@@ -24,6 +24,7 @@ using namespace std;
     __f(comma + 1, args...);
     }
 #else
+    #define line
     #define trace(...)
 #endif
 
