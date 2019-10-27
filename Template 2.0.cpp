@@ -1,11 +1,11 @@
+//#pragma GCC optimize("Ofast,no-stack-protector")
+//#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+//#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h>
 //#include <ext/pb_ds/tree_policy.hpp>
 //#include <ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
-//#pragma GCC optimize("Ofast,no-stack-protector")
-//#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
-//#pragma GCC optimize("unroll-loops")
 #define ll                      long long int
 #define ull                     unsigned long long int
 #define ld                      long double
@@ -16,8 +16,8 @@ using namespace std;
 #define mp                      make_pair
 #define pii     	            pair<int,int>
 #define piii                    pair<pair<int, int>, int>
-#define bitcount(number)        __builtin_popcount(a)
-#define bitcountLL(number)      __builtin_popcountll(a)
+#define bitcount(number)        __builtin_popcount(number)
+#define bitcountLL(number)      __builtin_popcountll(number)
 #define all(x)                  x.begin(), x.end()
 #define mem(array, value)       memset(array, value, sizeof(array))
 #define lcm(a,b)                ((abs(a) / gcd(a,b)) * abs(b))
