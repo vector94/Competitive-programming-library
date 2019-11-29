@@ -10,7 +10,7 @@ public:
     inline void Init(int n){
         this -> n = group = n;
         for(int i = 0; i <= n; i++){
-            parent[i] = i; 
+            parent[i] = i;
             sz[i] = 1;
             edge_cnt[i] = 0;
         }
@@ -31,7 +31,7 @@ public:
         return sz[ Find(p) ];
     }
     inline int Edge(int p){                 /// gives total number of edges in network
-        return edge_cnt[Find(p)];
+        return edge_cnt[ Find(p)];
     }
     inline void Union(int p, int q){        /// merges the group of p and q
         int par1 = Find(p);
