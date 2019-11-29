@@ -15,27 +15,27 @@ public:
             edge_cnt[i] = 0;
         }
     }
-    inline int find(int p){                 /// finds parent of p
-        return p == parent[p] ? p : parent[p] = find(parent[p]);
+    inline int Find(int p){                 /// finds parent of p
+        return p == parent[p] ? p : parent[p] = Find(parent[p]);
     }
-    inline int connected(int p, int q){     /// checks p and q is connected or not
-        return find(p) == find(q);
+    inline int Connected(int p, int q){     /// checks p and q is connected or not
+        return Find(p) == Find(q);
     }
-    inline int groupCnt(){                  /// gives number of disconnected group
+    inline int group_cnt(){                  /// gives number of disconnected group
         return group;
     }
-    inline int total(){                     /// gives total number of nodes in network
+    inline int Total(){                     /// gives total number of nodes in network
         return n;
     }
-    inline int size(int p){                 /// gives the size of the group of p
-        return sz[ find(p) ];
+    inline int Size(int p){                 /// gives the size of the group of p
+        return sz[ Find(p) ];
     }
-    inline int edge(int p){                 /// gives total number of edges in network
-        return edge_cnt[find(p)];
+    inline int Edge(int p){                 /// gives total number of edges in network
+        return edge_cnt[Find(p)];
     }
-    inline void merge(int p, int q){        /// merges the group of p and q
-        int par1 = find(p);
-        int par2 = find(q);
+    inline void Union(int p, int q){        /// merges the group of p and q
+        int par1 = Find(p);
+        int par2 = Find(q);
         edge_cnt[par1]++;
         if(par1 == par2){
             if (p == q){
