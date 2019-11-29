@@ -10,7 +10,9 @@ public:
     inline void Init(int n){
         this -> n = group = n;
         for(int i = 0; i <= n; i++){
-            parent[i] = i, sz[i] = 1;
+            parent[i] = i; 
+            sz[i] = 1;
+            edge_cnt[i] = 0;
         }
     }
     inline int find(int p){                 /// finds parent of p
