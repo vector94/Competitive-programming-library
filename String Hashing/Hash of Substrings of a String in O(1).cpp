@@ -38,7 +38,7 @@ struct Hashing {
         return (((hash1[i + len] - hash1[i] + mod1) * inv1[i] % mod1) << 32)
                                 + (hash2[i + len] - hash2[i] + mod2) * inv2[i] % mod2;
     }
-    ll rev_hash(int i, int j) {                 /// 0 - based
+    ll rev_hash(int i, int j) {                 /// 0 - based [not hash of reverse string]
         return get_hash(n - j - 1, n - i - 1);
     }
     void clear() {
