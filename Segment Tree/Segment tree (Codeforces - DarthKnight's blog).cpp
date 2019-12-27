@@ -42,6 +42,7 @@ int sum(int x, int y, int node = 1, int l = 0, int r = n){        /// interval [
 	int mid = (l + r) / 2;
 	return sum(x, y, node * 2, l, mid) + sum(x, y, node * 2 + 1, mid, r);
 }
+/// [Note: every node contains the range [l, r). r is not included]
 
 int main ()
 {
@@ -68,7 +69,7 @@ int main ()
         else{
             int l, r;
             cin >> l >> r;
-            cout << sum(l, r + 1) << endl;          /// interval [l, r)
+            cout << sum(l, r + 1) << endl; 
         }
     }
     return 0;
