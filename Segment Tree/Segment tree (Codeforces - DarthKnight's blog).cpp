@@ -69,7 +69,7 @@ int main ()
         else{
             int l, r;
             cin >> l >> r;
-            cout << sum(l, r + 1) << endl; 
+            cout << sum(l, r + 1) << endl; 	/// interval [l, r)
         }
     }
     return 0;
