@@ -33,7 +33,7 @@ void modify(int p, int x, int node = 1, int l = 0, int r = n){
 }
 
 int sum(int x, int y, int node = 1, int l = 0, int r = n){        /// interval [l, r)
-	if(x >= r or l >= y){
+	if(x >= r || l >= y){
         return 0;
 	}
 	if(x <= l && r <= y){
