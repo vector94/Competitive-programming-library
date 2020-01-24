@@ -45,7 +45,6 @@ pii bfs(int root){
         Q.pop();
     }
     dist[root] = 1;
-    parent[root] = -1;
     Q.push(root);
     while (!Q.empty()){
         int cur = Q.front();
