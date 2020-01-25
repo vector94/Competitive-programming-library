@@ -45,7 +45,7 @@ void Insert(string s, int len)
     for (int i = 0; i < len; i++){
         int id = s[i] - 'a';
         if (cur -> next[id] == NULL){
-            cur ->next[id] = new node();
+            cur -> next[id] = new node();
         }
         cur = cur -> next[id];
     }
