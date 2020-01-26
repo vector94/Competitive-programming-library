@@ -63,13 +63,13 @@ using namespace std;
 //std::priority_queue< PQ_TYPE , std::vector< PQ_TYPE >, decltype(&cmp) > PQ(cmp);
 
 ll Set(ll num, int pos){
-    return mask | (1LL << pos);
+    return num | (1LL << pos);
 }
 ll Reset(ll num, int pos){
-    return mask & ~(1LL << pos);
+    return num & ~(1LL << pos);
 }
 bool Check(ll num, int pos){
-    return (bool)(mask & (1LL << pos));
+    return (bool)(num & (1LL << pos));
 }
 
 inline ll gcd(ll a, ll b){
