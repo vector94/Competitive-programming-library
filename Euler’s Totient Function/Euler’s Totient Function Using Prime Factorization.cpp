@@ -28,7 +28,7 @@ using namespace std;
     #define trace(...)
 #endif
 
-vector<int> prime_factor;
+vector<ll> prime_factor;
 void prime_factorization(ll num)
 {
     ll sqrtN = sqrt(num);
