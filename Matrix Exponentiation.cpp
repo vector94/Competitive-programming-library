@@ -50,3 +50,19 @@ struct MAT{
     }
 };
 
+int main ()     /// Nt'h Tribonacci Number;
+{
+    ll n;
+    cin >> n;
+    MAT F(3, 1);
+    F.a[0][0] = 2;
+    F.a[1][0] = 1;
+    F.a[2][0] = 0;
+    MAT M(3, 3);
+    M.a[0][0] = 1;  M.a[0][1] = 1;  M.a[0][2] = 1;
+    M.a[1][0] = 1;  M.a[1][1] = 0;  M.a[1][2] = 0;
+    M.a[2][0] = 0;  M.a[2][1] = 1;  M.a[2][2] = 0;
+    MAT ans = (M ^ (n - 1)) * F;
+    printf ("%lld\n", ans.a[2][0]);
+    return 0;
+}
