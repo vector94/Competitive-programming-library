@@ -14,7 +14,7 @@ void shortestPath (int source)
     distance[source] = 0;
 
     while (!PQ.empty()){
-        int u =  PQ.top().second;;
+        int u =  PQ.top().second;
         PQ.pop();
 
         for (int i = 0; i<adjList[u].size(); i++){
