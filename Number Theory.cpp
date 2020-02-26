@@ -162,6 +162,19 @@ void factorial_factorize(int num){
     }
 }
 
+/// ------------------------ Divisors of Number ------------------------ ///
+/// Assign N
+// calculates of divisors of 1 to n
+// time complexity is nlogn
+vector<int> divisors[N]; // divisors of i
+void Divisors(int n) {
+    for(int i=1; i<=n; i++) {
+        for(int j=i; j<=n; j+=i) {
+            divisors[i].push_back(j);
+        }
+    }
+}
+
 /// ------------------------ Number of Divisor ------------------------ ///
 /// Assign N
 /// precalculate NOD upto limit
