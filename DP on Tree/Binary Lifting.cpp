@@ -60,7 +60,7 @@ void pre_cal()
     for (int i = 1; (1 << i) <= n; i++){
         for (int j = 1; j <= n; j++){
             int x = parent[j][i - 1];
-            if (parent[x][i - 1]){
+            if (x){
                 parent[j][i] = parent[x][i - 1];
             }
         }
