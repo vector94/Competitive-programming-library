@@ -59,9 +59,8 @@ void pre_cal()
 {
     for (int i = 1; (1 << i) <= n; i++){
         for (int j = 1; j <= n; j++){
-            int x = parent[j][i - 1];
-            if (x){
-                parent[j][i] = parent[x][i - 1];
+            if (parent[j][i - 1] != -1){
+                parent[j][i] = parent[parent[j][i - 1]][i - 1];
             }
         }
     }
@@ -73,7 +72,7 @@ int LCA(int u, int v)
         swap(u, v);
     }
     int d = level[u] - level[v];
-    for (int i = 20; i >= 0; i--){
+    for (int i = 15; i >= 0; i--){
         if ((1 << i) & d){
             u = parent[u][i];
         }
@@ -81,8 +80,8 @@ int LCA(int u, int v)
     if (u == v){
         return u;
     }
-    for (int i = 20; i >= 0; i--){
-        if (parent[u][i] != 0 && parent[u][i] != parent[v][i]){
+    for (int i = 15; i >= 0; i--){
+        if (parent[u][i] != -1 && parent[u][i] != parent[v][i]){
             u = parent[u][i];
             v = parent[v][i];
         }
@@ -105,6 +104,7 @@ int main ()
         graph[v].pb(u);
     }
     level[0] = -1;
+    mem(parent, -1);
     dfs(1, 0);
     pre_cal();
     return 0;
