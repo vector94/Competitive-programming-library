@@ -31,7 +31,7 @@ using namespace std;
 const int nax = 1e5 + 5;
 int level[nax];
 int parent[nax][25];
-/// parent[u][i] -> parent of u from 2^i distance above;
+/// parent[u][i] -> parent of u from 2^i distance above
 vector<int> graph[nax];
 int n;
 
