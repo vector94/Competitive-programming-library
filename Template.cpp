@@ -9,6 +9,7 @@ using namespace std;
 #define pii     	            pair<int,int>
 #define all(x)                  x.begin(), x.end()
 #define mem(array, value)       memset(array, value, sizeof(array))
+#define endl                    "\n"
 #define fastRead 	            ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
 #ifdef Lollipop
     #define line                    cout << "\n===================\n"
