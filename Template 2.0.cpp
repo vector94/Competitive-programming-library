@@ -31,6 +31,7 @@ using namespace std;
 #define SQ(x)                   ((x) * (x))
 #define pi      	            (2 * acos(0.0))
 #define eps     	            1e-11
+#define endl                    "\n"
 #define fastRead 	            ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0)
 #ifdef Lollipop
     #define line                    cout << "\n===================\n"
