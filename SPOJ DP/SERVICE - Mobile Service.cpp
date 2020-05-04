@@ -28,53 +28,38 @@ using namespace std;
     #define trace(...)
 #endif
 
-int cost[205][205];
+int cost[1005][1005];
+int l, n, cs;
 int req[1005];
-int dp[2][205][205];
-int n, l;
+int dp[1005][205][205], mark[1005][205][205];
 
-int solve()
+int solve(int pos, int a, int b)
 {
-    mem(dp, 0x3f);
-    dp[0][1][2] = 0;
-    req[0] = 3;
-    for (int i = 1; i <= n; i++){
-        int a = req[i - 1];
-        int next = req[i];
-        int cur = i % 2;
-        int pre = cur ^ 1;
-        for (int b = 1; b <= l; b++){
-            for (int c = 1; c <= l; c++){
-                dp[cur][b][c] = INT_MAX;
-            }
-        }
-        for (int b = 1; b <= l; b++){
-            for (int c = 1; c <= l; c++){
-                if (a == b || a == c || b == c){
-                    continue;
-                }
-                if (b != next && c != next){
-                    dp[cur][b][c] = min(dp[cur][b][c], dp[pre][b][c] + cost[a][next]);
-                }
-                if (a != next && c != next){
-                    dp[cur][a][c] = min(dp[cur][a][c], dp[pre][b][c] + cost[b][next]);
-                }
-                if (b != next && a != next){
-                    dp[cur][b][a] = min(dp[cur][b][a], dp[pre][b][c] + cost[c][next]);
-                }
-            }
-        }
+    if (pos > n){
+        return 0;
     }
-    int ret = INT_MAX;
-    for (int i = 1; i <= l; i++){
-        for (int j = 1; j <= l; j++){
-            ret = min (ret, dp[n % 2][i][j]);
-        }
+    int &ret = dp[pos][a][b];
+    int &m = mark[pos][a][b];
+    if (m == cs){
+        return ret;
+    }
+    int c = req[pos - 1];
+    int next = req[pos];
+    m = cs;
+    ret = 1e8;
+    if (next != a && next != b){
+        ret = min(ret, cost[c][next] + solve(pos + 1, a, b));
+    }
+    if (next != c && next != b){
+        ret = min(ret, cost[a][next] + solve(pos + 1, c, b));
+    }
+    if (next!= c && next != a){
+        ret = min(ret, cost[b][next] + solve(pos + 1, c, a));
     }
     return ret;
 }
 
-int main()
+int main ()
 {
     #ifdef Lollipop
         freopen ("input.txt", "r", stdin);
@@ -83,7 +68,7 @@ int main()
     //fastRead;
     int t;
     cin >> t;
-    while (t--){
+    for (cs = 1; cs <= t; cs++){
         cin >> l >> n;
         for (int i = 1; i <= l; i++){
             for (int j = 1; j <= l; j++){
@@ -93,6 +78,10 @@ int main()
         for (int i = 1; i <= n; i++){
             cin >> req[i];
         }
-        cout << solve() << endl;
+        req[0] = 3;
+        int res = INT_MAX;
+        cout << solve(1, 1, 2) << endl;
     }
+    return 0;
 }
+
