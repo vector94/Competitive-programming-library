@@ -1,6 +1,6 @@
-//#pragma GCC optimize("Ofast,no-stack-protector")
-//#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
-//#pragma GCC optimize("unroll-loops")
+#pragma GCC optimize("Ofast,no-stack-protector")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+#pragma GCC optimize("unroll-loops")
 #include <bits/stdc++.h>
 //#include <ext/pb_ds/tree_policy.hpp>
 //#include <ext/pb_ds/assoc_container.hpp>
@@ -20,7 +20,7 @@ using namespace std;
 #define bitcountLL(number)      __builtin_popcountll(number)
 #define all(x)                  x.begin(), x.end()
 #define mem(array, value)       memset(array, value, sizeof(array))
-#define lcm(a,b)                ((abs(a) / gcd(a,b)) * abs(b))
+#define lcm(a,b)                ((abs(a) / __gcd(a,b)) * abs(b))
 #define num_digit(number, base) (((long long)(log10(number) / log10(base)))+1)
 #define Random(a, b)            ((((rand() << 15) ^ rand()) % ((b) - (a) + 1)) + (a))
 #define Unique(x)               x.erase(unique(x.begin(), x.end()), x.end())                            /// data must be sorted
@@ -55,6 +55,14 @@ using namespace std;
 //int dx[] = {-1, 0, 1, 0},                  dy[] = {0, 1, 0, -1};                  /// 4 Direction
 //int dx[] = {-1, 0, 1, 0, -1, 1, 1, -1},    dy[] = {0, 1, 0, -1, -1, 1, -1, 1};    /// 8 Direction
 //int dx[] = {-2, -1, 1, 2, 2, -1, 1, -2},   dy[] = {1, 2, 2, 1, -1, -2, -2, -1};   /// Knight Direction
+
+// this is an strucure which implements the operator overlading for priority queue
+struct cmp{
+    bool operator()(Data x, Data y) {
+        // return reverse logic here
+    }
+};
+//priority_queue<Data, vector<Data>, cmp> PQ;
 
 ll Set(ll num, int pos){
     return num | (1LL << pos);
@@ -115,7 +123,6 @@ inline ll mod_inv(ll a, ll m){
     return x;
 }
 
-const ll INF = 1e15;
 
 int main ()
 {
@@ -123,9 +130,7 @@ int main ()
         //freopen ("input.txt", "r", stdin);
         //freopen ("output.txt", "w", stdout);
     #endif
-    //fastRead;
-
-
+    fastRead;
 
     return 0;
 }
