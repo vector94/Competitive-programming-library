@@ -56,13 +56,6 @@ using namespace std;
 //int dx[] = {-1, 0, 1, 0, -1, 1, 1, -1},    dy[] = {0, 1, 0, -1, -1, 1, -1, 1};    /// 8 Direction
 //int dx[] = {-2, -1, 1, 2, 2, -1, 1, -2},   dy[] = {1, 2, 2, 1, -1, -2, -2, -1};   /// Knight Direction
 
-/// Priority Queue custom compare
-//#define PQ_TYPE pair<pair<ll,ll>,int>
-//bool cmp(const PQ_TYPE &a, const PQ_TYPE &b){
-//    return a.fi.fi * b.fi.se < b.fi.fi * a.fi.se;
-//}
-//std::priority_queue< PQ_TYPE , std::vector< PQ_TYPE >, decltype(&cmp) > PQ(cmp);
-
 ll Set(ll num, int pos){
     return num | (1LL << pos);
 }
