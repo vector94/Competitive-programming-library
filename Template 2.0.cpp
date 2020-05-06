@@ -57,11 +57,11 @@ using namespace std;
 //int dx[] = {-2, -1, 1, 2, 2, -1, 1, -2},   dy[] = {1, 2, 2, 1, -1, -2, -2, -1};   /// Knight Direction
 
 // this is an strucure which implements the operator overlading for priority queue
-struct cmp{
-    bool operator()(Data x, Data y) {
-        // return reverse logic here
-    }
-};
+//struct cmp{
+//    bool operator()(Data x, Data y) {
+//        // return reverse logic here
+//    }
+//};
 //priority_queue<Data, vector<Data>, cmp> PQ;
 
 ll Set(ll num, int pos){
