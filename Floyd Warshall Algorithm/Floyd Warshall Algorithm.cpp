@@ -37,8 +37,8 @@ void printSolution()
 
 int main ()
 {
-    for (int i = 0; i<V; i++){
-        for (int j = 0; j<V; j++){
+    for (int i = 0; i < V; i++){
+        for (int j = 0; j < V; j++){
             if (i == j){
                 adjMatrix[i][j] = 0;
                 dist[i][j] = 0;
