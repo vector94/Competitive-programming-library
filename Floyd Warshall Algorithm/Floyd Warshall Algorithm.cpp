@@ -10,9 +10,9 @@ int dist[V][V];
 
 void floydWarshall()
 {
-    for (int k = 0; k<node; k++){
-        for (int i = 0; i<node; i++){
-            for (int j = 0; j<node; j++){
+    for (int k = 0; k < node; k++){
+        for (int i = 0; i < node; i++){
+            for (int j = 0; j < node; j++){
                 if (dist[i][j] > dist[i][k] + dist[k][j]){
                     dist[i][j] = dist[i][k] + dist[k][j];
                 }
@@ -22,8 +22,8 @@ void floydWarshall()
 }
 void printSolution()
 {
-    for (int i = 0; i<node; i++){
-        for (int j = 0; j<node; j++){
+    for (int i = 0; i < node; i++){
+        for (int j = 0; j < node; j++){
             if (dist[i][j] == INF){
                 printf ("%7s", "INF");
             }
