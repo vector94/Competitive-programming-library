@@ -36,18 +36,6 @@ ll lazy[nax * 4];
 ll tree[nax * 4];
 int n;
 
-void build(int node = 1, int l = 0, int r = n - 1)
-{
-    if (l == r){
-        tree[node] = ara[l];
-        return;
-    }
-    int mid = (l + r) / 2;
-    build(left, l, mid);
-    build(right, mid + 1, r);
-    tree[node] = tree[left] + tree[right];
-}
-
 void update(int node, int l, int r, ll x)
 {
     lazy[node] += x;
@@ -125,5 +113,3 @@ int main ()
     }
     return 0;
 }
-
-
