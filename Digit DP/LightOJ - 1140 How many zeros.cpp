@@ -28,26 +28,53 @@ using namespace std;
     #define trace(...)
 #endif
 
-const int nax = 1e5 + 5;
-ll arr[nax];
-int n;
-ll solve()
-{
-    if (n == 1){
-        return arr[0];
-    }
-    ll prev_max, prev_min, max_product;
-    max_product = prev_max = prev_min = arr[0];
+int tc, sz;
+vector<int> input;
+ll dp[2][2][20][20];
+int mark[2][2][20][20];
 
-    for (int i = 1; i < n; i++){
-        ll cur_max = max(prev_max * arr[i], max(prev_min * arr[i], arr[i]));
-        ll cur_min = min(prev_max * arr[i], min(prev_min * arr[i], arr[i]));
-        max_product = max(max_product, cur_max);
-        prev_max = cur_max;
-        prev_min = cur_min;
+ll cal(int is_start, int is_small, int pos, int value)
+{
+    if (pos >= sz){
+        return value;
     }
-    return max_product;
+    ll &ret = dp[is_start][is_small][pos][value];
+    int &m = mark[is_start][is_small][pos][value];
+    if (m == tc){
+        return ret;
+    }
+    m = tc;
+    int limit = is_small ? 9 : input[pos];
+    ret = 0;
+    if (is_start){
+        for (int i = 1; i <= limit; i++){
+            ret += cal(0, is_small | (i < input[pos]), pos + 1, value);
+        }
+        ret += cal(1, 1, pos + 1, 0);
+    }
+    else{
+        for (int i = 0; i <= limit; i++){
+            ret += cal(0, is_small | (i < input[pos]), pos + 1, value + (i == 0));
+        }
+    }
+    return ret;
 }
+
+ll solve(ll num)
+{
+    if (num < 0)    return 0;
+    if (num <= 9)   return 1;
+    input.clear();
+    while (num){
+        input.pb(num % 10);
+        num /= 10;
+    }
+    reverse(all(input));
+    tc++;
+    sz = input.size();
+    return cal(1, 0, 0, 0) + 1;
+}
+
 int main ()
 {
     #ifdef Lollipop
@@ -55,12 +82,14 @@ int main ()
         //freopen ("output.txt", "w", stdout);
     #endif
     //fastRead;
-    cin >> n;
-    for (int i = 0; i < n; i++){
-        cin >> arr[i];
+    int t;
+    cin >> t;
+    for (int cs = 1; cs <= t; cs++){
+        ll m, n;
+        cin >> m >> n;
+        ll ans = solve(n) - solve(m - 1);
+        printf ("Case %d: %lld\n", cs, ans);
     }
-    ll res = solve();
-    cout << res << endl;
     return 0;
 }
 
