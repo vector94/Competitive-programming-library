@@ -29,6 +29,32 @@ using namespace std;
     #define trace(...)
 #endif
 
+const int nax = 1e5 + 5;
+int sparse_table[nax][25], Log[nax];
+int ara[nax];
+int n;
+
+void build()
+{
+    Log[1] = 0;
+    for (int i = 2; i < nax; i++){
+        Log[i] = Log[i / 2] + 1;
+    }
+    for (int i = 0; i < n; i++){
+        sparse_table[i][0] = ara[i];
+    }
+    for (int j = 1; j <= 25; j++){
+        for (int i = 0; i + (1 << j) <= n; i++){
+            sparse_table[i][j] = min(sparse_table[i][j - 1], sparse_table[i + (1 << (j - 1))][j - 1]);
+        }
+    }
+}
+
+ll query(int x, int y)
+{
+    int j = Log[y - x + 1];
+    return min(sparse_table[x][j], sparse_table[y - (1 << j) + 1][j]);
+}
 
 int main ()
 {
@@ -36,9 +62,7 @@ int main ()
         //freopen ("input.txt", "r", stdin);
         //freopen ("output.txt", "w", stdout);
     #endif
-    //fastRead;
-
-
+    fastRead;
 
     return 0;
 }

@@ -9,7 +9,6 @@ using namespace std;
 #define pii     	            pair<int,int>
 #define all(x)                  x.begin(), x.end()
 #define mem(array, value)       memset(array, value, sizeof(array))
-#define endl                    "\n"
 #define fastRead 	            ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
 #ifdef Lollipop
     #define line                    cout << "\n===================\n"
@@ -29,28 +28,47 @@ using namespace std;
     #define trace(...)
 #endif
 
-//int dx[] = {-1, 0, 1, 0},                  dy[] = {0, 1, 0, -1};                  // 4 Direction
-//int dx[] = {-1, 0, 1, 0, -1, 1, 1, -1},    dy[] = {0, 1, 0, -1, -1, 1, -1, 1};    // 8 Direction
+const int nax = 1e5 + 5;
+int ara[nax];
+int block[350];
+int n, block_size;
 
-inline ll power(ll a, ll p){
-    ll res = 1, x = a;
-    while (p){
-        if (p & 1) res = (res * x);
-        x = (x * x), p >>= 1;
-    }
-    return res;
+int block_id(int index)
+{
+    return (index / block_size);
 }
-inline ll big_mod(ll a, ll p, ll m){
-    ll res = 1 % m, x = a % m;
-    while (p){
-        if (p & 1) res = (res * x) % m;
-        x = (x * x) % m, p >>= 1;
-    }
-    return res;
+void update(int pos, int value)
+{
+    int idx = block_id(pos);
+    block[idx] -= ara[pos];
+    ara[pos] = value;
+    block[idx] += ara[pos];
 }
-
-const ll INF = 1e15;
-
+int query(int l, int r)
+{
+    int ret = 0;
+    int left_block = block_id(l);
+    int right_block = block_id(r);
+    while (block_id(l) == left_block && l <= r){
+        ret += ara[l];
+        l++;
+    }
+    while (block_id(r) == right_block && right_block != left_block){
+        ret += ara[r];
+        r--;
+    }
+    for (int i = left_block + 1; i <= right_block - 1; i++){
+        ret += block[i];
+    }
+    return ret;
+}
+void build()
+{
+    block_size = sqrt(n);
+    for (int i = 1; i <= n; i++){
+        block[block_id(i)] += ara[i];
+    }
+}
 
 int main ()
 {
@@ -58,9 +76,14 @@ int main ()
         //freopen ("input.txt", "r", stdin);
         //freopen ("output.txt", "w", stdout);
     #endif
-    //fastRead;
-
-
+    fastRead;
+    cin >> n;
+    for (int i = 1; i <= n; i++){
+        cin >> ara[i];
+    }
+    build();
 
     return 0;
 }
+
+
