@@ -6,9 +6,10 @@ using namespace std;
 #define pb                      push_back
 #define pbb                     pop_back
 #define mp                      make_pair
-#define pii     	            pair<int,int>
+#define pii     	            pair<int,ll>
 #define all(x)                  x.begin(), x.end()
 #define mem(array, value)       memset(array, value, sizeof(array))
+#define endl                    "\n"
 #define fastRead 	            ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
 #ifdef Lollipop
     #define line                    cout << "\n===================\n"
@@ -28,45 +29,37 @@ using namespace std;
     #define trace(...)
 #endif
 
-int tc, sz;
-int a, b, k;
-vector<int> input;
-int dp[2][20][90][90];
-int mark[2][20][90][90];
+const int nax = 1e6 + 5;
+vector<pii> graph[nax];
+multiset<ll> branch[nax];
+int n;
 
-int cal(int is_small, int pos, int rem, int rem_digit)
+ll dfs1(int u, int p)
 {
-    if (pos >= sz){
-        if (rem + rem_digit == 0){
-            return 1;
-        }
-        return 0;
+    for (auto x : graph[u]){
+        int v = x.fi;
+        ll w = x.se;
+        if (v == p) continue;
+        ll cur = w + dfs1(v, u);
+        branch[u].insert(cur);
     }
-    int &ret = dp[is_small][pos][rem][rem_digit];
-    int &m =  mark[is_small][pos][rem][rem_digit];
-    if (m == tc){
-        return ret;
-    }
-    ret = 0;
-    m = tc;
-    int limit = is_small ? 9 : input[pos];
-    for (int i = 0; i <= limit; i++){
-        ret += cal(is_small | (i < input[pos]), pos + 1, (rem * 10 + i) % k, (rem_digit + i) % k);
-    }
-    return ret;
+    return *branch[u].rbegin();
 }
 
-int solve(int num)
+void dfs2(int u, int p)
 {
-    input.clear();
-    while (num){
-        input.pb(num % 10);
-        num /= 10;
+    for (auto x : graph[u]){
+        int v = x.fi;
+        ll w = x.se;
+        if (v == p) continue;
+        auto it1 = branch[u].rbegin();
+        auto it2 = branch[v].rbegin();
+        if (*it1 == *it2 + w){
+            it1++;
+        }
+        branch[v].insert(*it1 + w);
+        dfs2(v, u);
     }
-    reverse(all(input));
-    tc++;
-    sz = input.size();
-    return cal(0, 0, 0, 0);
 }
 
 int main ()
@@ -76,18 +69,31 @@ int main ()
         //freopen ("output.txt", "w", stdout);
     #endif
     //fastRead;
-    int t;
-    cin >> t;
-    for (int cs = 1; cs <= t; cs++){
-        cin >> a >> b >> k;
-        if (k > 81){
-            printf ("Case %d: 0\n", cs);
-            continue;
-        }
-        ll ans = solve(b) - solve(a - 1);
-        printf ("Case %d: %d\n", cs, ans);
+    scanf ("%d", &n);
+    for (int i = 1; i < n; i++){
+        int u, v;
+        ll w;
+        scanf ("%d %d %lld", &u, &v, &w);
+        graph[u].pb(mp(v, w));
+        graph[v].pb(mp(u, w));
+    }
+    branch[1].insert(0);
+    for (int i = 1; i <= n; i++){
+        branch[i].insert(0);
+    }
+    dfs1(1, 0);
+    dfs2(1, 0);
+    int q;
+    scanf ("%d", &q);
+    while (q--){
+        int x;
+        scanf ("%d", &x);
+        auto it = branch[x].rbegin();
+        ll res = *it;
+        it++;
+        res += *it;
+        printf ("%lld\n", res);
     }
     return 0;
 }
-
 

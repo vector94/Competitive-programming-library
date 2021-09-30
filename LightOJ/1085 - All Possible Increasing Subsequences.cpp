@@ -9,6 +9,7 @@ using namespace std;
 #define pii     	            pair<int,int>
 #define all(x)                  x.begin(), x.end()
 #define mem(array, value)       memset(array, value, sizeof(array))
+#define endl                    "\n"
 #define fastRead 	            ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0)
 #ifdef Lollipop
     #define line                    cout << "\n===================\n"
@@ -28,51 +29,38 @@ using namespace std;
     #define trace(...)
 #endif
 
-int tc, sz;
-vector<int> input;
-ll dp[2][2][20][20];
-int mark[2][2][20][20];
+const int nax = 1e5 + 5;
+const int mod = 1000000007;
+#define mid ((l + r) / 2)
+#define left (node * 2)
+#define right (node * 2 + 1)
+int ara[nax], temp[nax], tree[4 * nax];
+int n;
+map<int, int> MP;
 
-ll cal(int is_start, int is_small, int pos, int value)
+ll query(int x, int y, int node = 1, int l = 1, int r = n)
 {
-    if (pos >= sz){
-        return value;
+    if (l > y || r < x){
+        return 0;
     }
-    ll &ret = dp[is_start][is_small][pos][value];
-    int &m = mark[is_start][is_small][pos][value];
-    if (m == tc){
-        return ret;
+    if (l >= x && r <= y){
+        return tree[node];
     }
-    m = tc;
-    int limit = is_small ? 9 : input[pos];
-    ret = 0;
-    if (is_start){
-        for (int i = 1; i <= limit; i++){
-            ret += cal(0, is_small | (i < input[pos]), pos + 1, value);
-        }
-        ret += cal(1, 1, pos + 1, 0);
-    }
-    else{
-        for (int i = 0; i <= limit; i++){
-            ret += cal(0, is_small | (i < input[pos]), pos + 1, value + (i == 0));
-        }
-    }
-    return ret;
+    return (query(x, y, left, l, mid) + query(x, y, right, mid + 1, r)) % mod;
 }
 
-ll solve(ll num)
+void update(int x, int v, int node = 1, int l = 1, int r = n)
 {
-    if (num < 0)    return 0;
-    if (num <= 9)   return 1;
-    input.clear();
-    while (num){
-        input.pb(num % 10);
-        num /= 10;
+    if (l > x || r < x){
+        return;
     }
-    reverse(all(input));
-    tc++;
-    sz = input.size();
-    return cal(1, 0, 0, 0) + 1;
+    if (l == x && r == x){
+        tree[node] = v;
+        return;
+    }
+    update(x, v, left, l, mid);
+    update(x, v, right, mid + 1, r);
+    tree[node] = (tree[left] + tree[right]) % mod;
 }
 
 int main ()
@@ -83,14 +71,30 @@ int main ()
     #endif
     //fastRead;
     int t;
-    cin >> t;
+    scanf ("%d", &t);
     for (int cs = 1; cs <= t; cs++){
-        ll m, n;
-        cin >> m >> n;
-        ll ans = solve(n) - solve(m - 1);
-        printf ("Case %d: %lld\n", cs, ans);
+        int m;
+        scanf ("%d", &m);
+        n = 0;
+        mem(tree, 0);
+        MP.clear();
+        for (int i = 0; i < m; i++){
+            scanf ("%d", &ara[i]);
+            temp[i] = ara[i];
+        }
+        sort(temp, temp + m);
+        for (int i = 0; i < m; i++){
+            if (!MP[temp[i]]){
+                MP[temp[i]] = ++n;
+            }
+        }
+        for (int i = 0; i < m; i++){
+            ll v = query(1, MP[ara[i]]) + 1;
+            v %= mod;
+            update(MP[ara[i]], v);
+        }
+        printf ("Case %d: %lld\n", cs, query(1, n));
     }
     return 0;
 }
-
 
