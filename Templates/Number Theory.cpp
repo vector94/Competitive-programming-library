@@ -164,6 +164,7 @@ void factorial_factorize(int num){
 
 /// ------------------------ Divisors of Number ------------------------ ///
 /// Assign N
+// list of numbers whose divisor is i
 // calculates of divisors of 1 to n
 // time complexity is nlogn
 vector<int> divisors[N]; // divisors of i
